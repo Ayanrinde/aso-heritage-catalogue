@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-chalk font-body text-[1.0625rem] leading-[1.65] text-indigo-deep antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  :focus-visible {
+    outline: 3px solid #1a2467;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-sm px-6 py-3 font-display text-base font-bold transition-colors duration-200;
+  }
+
+  .btn-wa {
+    @apply bg-wa text-white hover:bg-[#09584a];
+  }
+
+  .btn-saffron {
+    @apply bg-saffron text-indigo-deep hover:bg-[#f0b93a];
+  }
+
+  .btn-line {
+    @apply border-2 border-indigo text-indigo hover:bg-indigo hover:text-chalk;
+  }
+
+  .btn-line-light {
+    @apply border-2 border-mist/70 text-chalk hover:bg-chalk hover:text-indigo-deep;
+  }
+}
+
+/* Dark sections get a light focus ring so keyboard focus stays visible. */
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: #e0a526;
+}
